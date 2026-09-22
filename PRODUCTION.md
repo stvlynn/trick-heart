@@ -17,7 +17,15 @@
 
 使用内置 image_gen 制作各镜头的 Lynn 素材，并在原视频上做跟踪、裁切、遮挡和颜色合成。原片的主要背景、字幕、道具、动物、剪辑及音轨继续沿用。人物使用逐镜头关键姿势与仿射运动合成，细微表情和肢体动作有简化，部分与人物相交的道具、背景边缘会有重绘差异。
 
-`output/` 中带 `preview`、`review`、`render`、`patched`、`polish` 的文件为中间检查文件；交付文件名为 `Trick-Heart-Lynn-PV.mp4`。
+### 抛球段（1:43–1:52.6）
+
+原片这一段是逐帧重绘的有限动画：整段 230 帧由 31 张不同的原画循环构成，头、肩、领结每张都略有差异。早期版本把 Lynn 头像连同部分肩膀整块贴到仍在运动的原片身体上，再用特征点估算缩放，导致肩线频繁错位。现在改为：
+
+- 只替换帽子、头发、脸和颈部（`scripts/juggling.py`），肩膀、手臂、手套、球和衬衫领子全部保留原片动作，原片红色礼服和黑领结按镜头整帧重着色为深蓝与青蓝。
+- `scripts/track_juggling.py` 先把帧归并成 31 张原画，在每张原画上定位黑色领结顶端作为锚点，把头像的颈部对齐到该锚点；近景镜头的缩放比（1.59）由参考原画的脸部多尺度匹配得出。结果写入 `work/shoulder-fix/head-tracks.json`，`work/shoulder-fix/anchor-qc.jpg` 是逐原画的锚点核对图。
+- 原角色的头发、皮肤通过颜色连通域动态擦除，避免重绘漂移时露出红发；只有位于脸部凸包之外的大块白色/橙色区域才被当作手套、袖口还原到前景，原角色的眼白不会残留。
+
+`output/` 中带 `preview`、`review`、`render`、`patched`、`polish`、`shoulder` 的文件为中间检查文件；交付文件名为 `Trick-Heart-Lynn-PV.mp4`。
 
 ## 验证
 
@@ -27,4 +35,4 @@
 - 最终逐秒画面接触表：`work/delivery-qc/page-*.jpg`。
 - 机器验证报告：`work/delivery-qc/verification.json`。
 
-合成程序：`scripts/composite.py`。验证程序：`scripts/verify_delivery.py`。保留所有素材和时间线，可继续细化。
+合成程序：`scripts/composite.py`（抛球段头像放置见 `scripts/juggling.py` 与 `scripts/track_juggling.py`）。验证程序：`scripts/verify_delivery.py`。保留所有素材和时间线，可继续细化。

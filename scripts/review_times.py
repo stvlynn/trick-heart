@@ -11,7 +11,7 @@ for i,t in enumerate(ts):
  for k,s in enumerate(specs):
   if round(s['start']*FPS)<=round(t*FPS)<round(s['end']*FPS):
    if k not in plates:plates[k]=Plate(s)
-   f,_=plates[k].apply(f,gray,features)
+   f,_=plates[k].apply(f,gray,features,round(t*FPS))
  f=finish_visible_cuffs(f,t);cv2.imwrite(str(ROOT/f'work/qc/detail-{t:.3f}.jpg'),f)
  im=Image.fromarray(cv2.cvtColor(cv2.resize(f,(480,270)),cv2.COLOR_BGR2RGB));ImageDraw.Draw(im).text((5,5),str(t),fill='white');out.paste(im,(i%3*480,i//3*270))
 out.save(str(ROOT/'work/qc/fixes.jpg'))

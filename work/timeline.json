@@ -710,7 +710,7 @@
     ],
     "full_patch": true,
     "anatomical_head": true,
-    "neck_tracks": "work/shoulder-fix/neck-tracks.json"
+    "head_tracks": "work/shoulder-fix/head-tracks.json"
   },
   {
     "source": "work/frames/s070-112.800.png",

@@ -14,7 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 W,H,FPS=1920,1080,24
 cv2.setNumThreads(4)
 
-def finish_visible_cuffs(frame,t,original=None):
+def finish_visible_cuffs(frame,t):
     """Match isolated source hand shots to the locked cyan/white costume cuffs."""
     edits=[]
     if t<10:edits.append(('cyan',550,550,1400,850))
@@ -33,7 +33,8 @@ def finish_visible_cuffs(frame,t,original=None):
     if 125.125<=t<126.5833333:edits.append(('white',650,300,1450,800))
     if 144.9166667<=t<146.2083333:edits.append(('white',500,250,1500,850))
     if 103<=t<112.583333333:
-        edits.extend([('navy',0,480,1920,1080),('cyan',0,480,1920,1080)])
+        # Whole frame: the source jacket shoulders reach up to the collar line.
+        edits.extend([('navy',0,0,1920,1080),('cyan',0,0,1920,1080)])
     for kind,x1,y1,x2,y2 in edits:
         roi=frame[y1:y2,x1:x2]
         b,g,r=cv2.split(roi.astype(np.float32))
@@ -55,14 +56,6 @@ def finish_visible_cuffs(frame,t,original=None):
             light=np.clip((mx-150)*.002+1,.75,1.03)
         colors=np.clip(target[None,None,:]*light[...,None],0,255).astype(np.uint8)
         roi[mask]=colors[mask]
-    if original is not None and 103<=t<112.583333333:
-        low=original.min(axis=2);high=original.max(axis=2)
-        mask=((low>15)&(high<70)&(high-low<15)).astype(np.uint8)
-        n,labels,stats,cents=cv2.connectedComponentsWithStats(mask)
-        for i in range(1,n):
-            x,y,w,h,area=stats[i];cx,cy=cents[i]
-            if 1500<area<20000 and 450<cy<800 and 45<w<230 and 35<h<170 and .8<w/h<2.8:
-                frame[labels==i]=[213,174,76]
     return frame
 
 def red_background(im):
@@ -107,7 +100,8 @@ class Plate:
         if spec.get('anatomical_head'):
             from juggling import build_head_masks
             self.head_erase,self.head_alpha=build_head_masks(self.art,red_background)
-            self.neck_tracks={r['frame']:r for r in json.loads((ROOT/spec['neck_tracks']).read_text())}
+            tracks=json.loads((ROOT/spec['head_tracks']).read_text())
+            self.head_tracks={r['frame']:r for r in tracks['frames']}
         self.sift=cv2.SIFT_create(nfeatures=1800,contrastThreshold=.025)
         gray=cv2.resize(cv2.cvtColor(self.ref,cv2.COLOR_BGR2GRAY),(960,540))
         roi=cv2.resize(self.roi,(960,540),interpolation=cv2.INTER_NEAREST)
@@ -135,12 +129,9 @@ class Plate:
     def apply(self,frame,gray,features,frame_index=None):
         if self.spec.get('anatomical_head'):
             from juggling import composite_head
-            if frame_index in self.neck_tracks:
-                row=self.neck_tracks[frame_index];mat=np.array(row['matrix']);score=row['score']
-            else:
-                from track_neck import track
-                mat,score=track(frame,self.ref)
-            return composite_head(frame,self.art,self.head_erase,self.head_alpha,mat,background_color(frame)),int(score*100)
+            # Placement is precomputed per source drawing by scripts/track_juggling.py.
+            row=self.head_tracks[frame_index];mat=np.array(row['matrix'],np.float64)
+            return composite_head(frame,self.art,self.head_erase,self.head_alpha,mat,background_color(frame),row['anchor']),999
         if self.spec.get('only_when_magenta'):
             b,g,r=cv2.split(frame.astype(np.float32))
             if np.count_nonzero((r>155)&(g<95)&(b>g*1.5)&(b<r*.8))<500:return frame,999
@@ -216,7 +207,6 @@ def render(manifest,start,end,destination,base=None):
     for n in range(first,last):
         ok,frame=cap.read()
         if not ok:break
-        original=frame
         if basecap:
             baseok,baseframe=basecap.read();assert baseok
         active=[p for p in plates if round(p.spec['start']*FPS)<=n<round(p.spec['end']*FPS)]
@@ -227,7 +217,7 @@ def render(manifest,start,end,destination,base=None):
                 frame,confidence=p.apply(frame,gray,features,n)
                 if confidence<8:report.append({'frame':n,'plate':p.spec['art'],'inliers':confidence})
         elif basecap:frame=baseframe
-        frame=finish_visible_cuffs(frame,n/FPS,original)
+        frame=finish_visible_cuffs(frame,n/FPS)
         writer.stdin.write(frame.tobytes())
         if n%120==0:print(f'{n/FPS:.2f}s / {end:.2f}s',flush=True)
     writer.stdin.close()
