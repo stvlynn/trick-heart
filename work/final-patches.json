@@ -1,0 +1,51 @@
+[
+  {
+    "source": "work/frames/s058-090.000.png",
+    "art": "assets/lynn/s058-090.000.png",
+    "start": 88.625,
+    "end": 89.625,
+    "regions": [
+      [
+        1200,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "only_when_magenta": true
+  },
+  {
+    "source": "work/frames/extra-137.800.png",
+    "art": "assets/lynn/s080-138.700.png",
+    "start": 137.25,
+    "end": 138.375,
+    "regions": [
+      [
+        585,
+        320,
+        1358,
+        782
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "art_transform": [
+      [
+        1.05,
+        0,
+        -300
+      ],
+      [
+        0,
+        1.05,
+        -180
+      ]
+    ],
+    "background": [
+      225,
+      233,
+      238
+    ]
+  }
+]

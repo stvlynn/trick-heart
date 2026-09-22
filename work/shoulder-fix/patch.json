@@ -1,0 +1,19 @@
+[
+  {
+    "source": "work/frames/s067-103.500.png",
+    "art": "assets/lynn/s067-103.500.png",
+    "start": 103,
+    "end": 112.583333333,
+    "regions": [
+      [
+        1170,
+        0,
+        1810,
+        485
+      ]
+    ],
+    "full_patch": true,
+    "anatomical_head": true,
+    "neck_tracks": "work/shoulder-fix/neck-tracks.json"
+  }
+]
