@@ -73,6 +73,36 @@
     "full_patch": true
   },
   {
+    "source": "work/frames/s008-016.500.png",
+    "art": "assets/lynn/s008-016.500.png",
+    "start": 16.375,
+    "end": 18.5,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "protect": [
+      [
+        0,
+        400,
+        220,
+        1080
+      ],
+      [
+        1700,
+        0,
+        1920,
+        600
+      ]
+    ]
+  },
+  {
     "source": "work/frames/s010-018.600.png",
     "art": "assets/lynn/s014-expanded.png",
     "start": 18.5,
@@ -120,7 +150,7 @@
     "source": "work/frames/s015-022.300.png",
     "art": "assets/lynn/s015-022.300.png",
     "start": 22.25,
-    "end": 22.75,
+    "end": 22.375,
     "regions": [
       [
         0,
@@ -131,6 +161,66 @@
     ],
     "full_patch": true,
     "static": true
+  },
+  {
+    "source": "work/frames/frame-537.png",
+    "art": "assets/lynn/frame-537.png",
+    "start": 22.375,
+    "end": 22.5,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "protect": [
+      [
+        0,
+        0,
+        220,
+        1080
+      ],
+      [
+        1700,
+        0,
+        1920,
+        1080
+      ]
+    ]
+  },
+  {
+    "source": "work/frames/frame-540.png",
+    "art": "assets/lynn/frame-540.png",
+    "start": 22.5,
+    "end": 22.75,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "protect": [
+      [
+        0,
+        0,
+        220,
+        1080
+      ],
+      [
+        1700,
+        0,
+        1920,
+        1080
+      ]
+    ]
   },
   {
     "source": "work/frames/s018-026.200.png",
@@ -160,7 +250,8 @@
         790
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "follow_band": true
   },
   {
     "source": "work/frames/s020-031.200.png",
@@ -175,12 +266,173 @@
         795
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "follow_band": true
   },
   {
-    "source": "work/frames/s021-033.200.png",
+    "source": "work/pose33-fix/frame-787.png",
+    "art": "assets/lynn/frame-787.png",
+    "start": 32.791666666666664,
+    "end": 32.916666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-790.png",
+    "art": "assets/lynn/frame-790.png",
+    "start": 32.916666666666664,
+    "end": 33.166666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-796.png",
     "art": "assets/lynn/s021-033.200.png",
-    "start": 32.7916667,
+    "start": 33.166666666666664,
+    "end": 33.416666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-802.png",
+    "art": "assets/lynn/frame-802.png",
+    "start": 33.416666666666664,
+    "end": 33.666666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-787.png",
+    "art": "assets/lynn/frame-787.png",
+    "start": 33.666666666666664,
+    "end": 33.916666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-790.png",
+    "art": "assets/lynn/frame-790.png",
+    "start": 33.916666666666664,
+    "end": 34.166666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-796.png",
+    "art": "assets/lynn/s021-033.200.png",
+    "start": 34.166666666666664,
+    "end": 34.416666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-802.png",
+    "art": "assets/lynn/frame-802.png",
+    "start": 34.416666666666664,
+    "end": 34.666666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-787.png",
+    "art": "assets/lynn/frame-787.png",
+    "start": 34.666666666666664,
+    "end": 34.916666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-790.png",
+    "art": "assets/lynn/frame-790.png",
+    "start": 34.916666666666664,
+    "end": 35.166666666666664,
+    "regions": [
+      [
+        400,
+        150,
+        1320,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/pose33-fix/frame-796.png",
+    "art": "assets/lynn/s021-033.200.png",
+    "start": 35.166666666666664,
     "end": 35.375,
     "regions": [
       [
@@ -190,7 +442,8 @@
         1080
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "static": true
   },
   {
     "source": "work/frames/s022-036.000.png",
@@ -439,7 +692,9 @@
         1080
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
   },
   {
     "source": "work/frames/s043-061.400.png",
@@ -454,7 +709,9 @@
         1080
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
   },
   {
     "source": "work/frames/s044-064.500.png",
@@ -469,7 +726,9 @@
         1080
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
   },
   {
     "source": "work/frames/s045-066.300.png",
@@ -484,7 +743,9 @@
         1080
       ]
     ],
-    "full_patch": true
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
   },
   {
     "source": "work/frames/s046-068.300.png",

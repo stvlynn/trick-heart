@@ -62,6 +62,34 @@ def red_background(im):
     b,g,r=cv2.split(im.astype(np.float32))
     return (r>g*1.55)&(r-g>20)&(np.abs(g-b)<25)&(g<120)&(r<205)
 
+def band_edges(im,x1,x2,y_lo=200,y_hi=900):
+    """Per-column row of the letterbox band's top and bottom ink outline.
+
+    The band's outline boils from frame to frame, so a plate cannot carry its
+    own copy of the edge. The outline is the first dark run below the red
+    backdrop; where the source character's hair spills over the outline the
+    edge is interpolated from neighbouring columns. Loose peach petals drifting
+    over the backdrop are ignored so they do not pull the edge outwards.
+    Returns (top, bottom, solid) with top/bottom as float arrays over x.
+    """
+    b,g,r=cv2.split(im.astype(np.float32))
+    petal=cv2.dilate(((r>225)&(g>175)&(g<225)&(b>120)&(b<200)).astype(np.uint8),np.ones((7,7),np.uint8))>0
+    solid=(~red_background(im))&(~petal)
+    solid[:y_lo]=False;solid[y_hi:]=False;solid[:,:x1]=False;solid[:,x2:]=False
+    dark=(im.max(axis=2)<70)&solid
+    ys=np.arange(H)[:,None]
+    first=np.where(solid,ys,H).min(axis=0);last=np.where(solid,ys,-1).max(axis=0)
+    first_dark=np.where(dark,ys,H).min(axis=0);last_dark=np.where(dark,ys,-1).max(axis=0)
+    # Outline is trusted only where it sits right at the band boundary.
+    top_ok=(first<H)&(first_dark-first<=3);bottom_ok=(last>=0)&(last-last_dark<=3)
+    cols=np.arange(W)
+    def fill(values,ok):
+        ok=ok.copy();ok[:x1]=False;ok[x2:]=False
+        if ok.sum()<2:return values.astype(np.float32)
+        out=np.interp(cols,cols[ok],values[ok]).astype(np.float32)
+        return cv2.medianBlur(out.reshape(1,-1),5).ravel()
+    return fill(first_dark,top_ok),fill(last_dark,bottom_ok),solid
+
 def background_color(im):
     sampled=im[::6,::6]
     candidates=red_background(sampled)
@@ -150,6 +178,8 @@ class Plate:
                 mat=np.array([[scale,0,delta[0]],[0,scale,delta[1]]],np.float64);confidence=999
         art=cv2.warpAffine(self.art,mat,(W,H),flags=cv2.INTER_LINEAR,borderValue=tuple(map(int,self.bg)))
         art[red_background(art)]=self.spec.get('background',background_color(frame))
+        if self.spec.get('restore_overlays'):
+            art=self.strip_plate_overlays(art,frame)
         alpha=cv2.warpAffine(self.alpha,mat,(W,H),flags=cv2.INTER_LINEAR).astype(np.float32)[...,None]/255
         if self.spec.get('dynamic_erase'):
             old=(~red_background(frame)).astype(np.uint8)*255
@@ -190,7 +220,97 @@ class Plate:
                     yy,xx=np.ogrid[:H,:W]
                     ball=(xx-cx)**2+(yy-cy)**2<=rad**2
                     output[ball]=frame[ball]
+        if self.spec.get('follow_band'):
+            output=self.follow_band(frame,art,output)
+        if self.spec.get('restore_overlays'):
+            output=self.restore_overlays(frame,art,output)
         return output,confidence
+
+    def strip_plate_overlays(self,art,frame):
+        """Remove the plate's own copy of backdrop overlays (the telephone string,
+        stray specks). The source versions are put back by `restore_overlays`."""
+        bg=background_color(frame)
+        fg=((~red_background(art))&(self.roi>0)).astype(np.uint8)
+        # Thin horizontal structures near where the source string runs: the plate's
+        # own string, which never lines up with the boiling source one.
+        kept=cv2.morphologyEx(fg,cv2.MORPH_OPEN,np.ones((15,1),np.uint8))
+        near_string=cv2.dilate(self.source_overlay(frame).astype(np.uint8),np.ones((51,51),np.uint8))>0
+        thin=(cv2.dilate(fg-kept,np.ones((5,5),np.uint8))>0)&near_string
+        # Small islands detached from the character: hallucinated marks and glyph
+        # pieces. Anything touching the character (hat feather, ribbon) stays.
+        n,labels,stats,_=cv2.connectedComponentsWithStats(fg)
+        big=cv2.dilate(np.isin(labels,[i for i in range(1,n) if stats[i,4]>=2500]).astype(np.uint8),np.ones((21,21),np.uint8))>0
+        island=np.zeros((H,W),bool)
+        for i in range(1,n):
+            if stats[i,4]<2500 and not big[labels==i].any():island[labels==i]=True
+        island=cv2.dilate(island.astype(np.uint8),np.ones((5,5),np.uint8))>0
+        art=art.copy();art[(thin|island)&(self.roi>0)]=bg
+        return art
+
+    def source_overlay(self,frame):
+        """Source pixels that belong to backdrop overlays: the string and lyric text.
+
+        The string is a thin white line with an ink edge; anything thick and white
+        (gloves, the source's hat ribbon) and the ink hugging it is excluded, so
+        only long thin structures count as string. Lyric text has its own colour.
+        """
+        b,g,r=cv2.split(frame.astype(np.float32))
+        whitish=(np.minimum.reduce([b,g,r])>165)&(np.maximum.reduce([b,g,r])-np.minimum.reduce([b,g,r])<45)
+        ink=(np.maximum.reduce([b,g,r])<110)&(cv2.dilate(whitish.astype(np.uint8),np.ones((9,9),np.uint8))>0)
+        line=((whitish|ink)&(~red_background(frame))).astype(np.uint8)
+        dist=cv2.distanceTransform(line,cv2.DIST_L2,5)
+        thick=cv2.dilate((dist>10).astype(np.uint8),np.ones((29,29),np.uint8))>0
+        thin=line.copy();thin[thick]=0
+        n,labels,stats,_=cv2.connectedComponentsWithStats(thin)
+        string=np.isin(labels,[i for i in range(1,n) if max(stats[i,2],stats[i,3])>=120])
+        # Lyric text shares its peach colour with the source's sweater; keep only thin strokes.
+        text=((r>220)&(g>150)&(g<235)&(b>110)&(b<215)&(r-b>30)).astype(np.uint8)
+        thick=cv2.dilate((cv2.distanceTransform(text,cv2.DIST_L2,5)>7).astype(np.uint8),np.ones((15,15),np.uint8))>0
+        text[thick]=0
+        return string|(text>0)
+
+    def restore_overlays(self,frame,art,output):
+        """Bring back the source string and lyric text wherever the plate shows backdrop."""
+        plate_fg=cv2.dilate(((~red_background(art))&(self.roi>0)).astype(np.uint8),np.ones((7,7),np.uint8))>0
+        overlay=self.source_overlay(frame)
+        # Frame-blended edges (the text drops in with motion blur, the string
+        # boils) sit between backdrop and overlay colour; take them along too.
+        bg=background_color(frame)
+        off_bg=np.abs(frame.astype(np.int16)-bg.astype(np.int16)).max(axis=2)>30
+        b,g,r=cv2.split(frame)
+        yellow=(r>200)&(g>150)&(b<100)
+        halo=(cv2.dilate(overlay.astype(np.uint8),np.ones((7,7),np.uint8))>0)&off_bg&~yellow
+        overlay=(overlay|halo)&(self.roi>0)&(~plate_fg)
+        overlay=cv2.morphologyEx(overlay.astype(np.uint8),cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))>0
+        output=output.copy();output[overlay]=frame[overlay]
+        return output
+
+    def follow_band(self,frame,art,output):
+        """Keep the source's boiling letterbox edges; the plate only fills the inside."""
+        x1=min(r[0] for r in self.spec['regions']);x2=max(r[2] for r in self.spec['regions'])
+        src_top,src_bot,solid=band_edges(frame,x1,x2)
+        art_top,art_bot,_=band_edges(art,x1,x2)
+        ys=np.arange(H)[:,None];xs=(np.arange(W)>=x1)&(np.arange(W)<x2)
+        top=src_top[None,:];bottom=src_bot[None,:]
+        source_in=(ys>=top+3)&(ys<=bottom-3)&xs
+        plate_in=(ys>=art_top[None,:]+8)&(ys<=art_bot[None,:]-8)&(self.roi>0)
+        b,g,r=cv2.split(frame)
+        cream_px=frame[source_in&(b>200)&(g>215)&(r>215)]
+        cream=np.median(cream_px,axis=0).astype(np.uint8) if len(cream_px) else np.array([238,235,217],np.uint8)
+        bg=background_color(frame)
+        result=frame.copy()
+        # The source hair spilled over the outline; Lynn's does not, so clear it.
+        spill=solid&(((ys<top)&(ys>=top-30))|((ys>bottom)&(ys<=bottom+30)))
+        result[spill]=bg
+        # Redraw the 3px ink outline where the hair covered it.
+        on_edge=(((ys>=top)&(ys<top+3))|((ys>bottom-3)&(ys<=bottom)))&xs
+        ink=frame.max(axis=2)<70
+        result[on_edge&~ink]=(8,8,8)
+        keep=source_in&plate_in
+        result[keep]=output[keep]
+        # Inside the source band but past the plate's own edge: fill with the band colour.
+        result[source_in&~keep]=cream
+        return result
 
 def render(manifest,start,end,destination,base=None):
     specs=json.loads(Path(manifest).read_text())

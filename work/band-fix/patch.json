@@ -1,0 +1,34 @@
+[
+  {
+    "source": "work/frames/s019-029.500.png",
+    "art": "assets/lynn/s019-029.500.png",
+    "start": 29.333333333,
+    "end": 31,
+    "regions": [
+      [
+        0,
+        310,
+        1410,
+        790
+      ]
+    ],
+    "full_patch": true,
+    "follow_band": true
+  },
+  {
+    "source": "work/frames/s020-031.200.png",
+    "art": "assets/lynn/s020-031.200.png",
+    "start": 31,
+    "end": 32.791666667,
+    "regions": [
+      [
+        770,
+        305,
+        1920,
+        795
+      ]
+    ],
+    "full_patch": true,
+    "follow_band": true
+  }
+]

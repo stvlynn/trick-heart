@@ -1,0 +1,108 @@
+[
+  {
+    "source": "work/frames/s008-016.500.png",
+    "art": "assets/lynn/s008-016.500.png",
+    "start": 16.375,
+    "end": 18.5,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "protect": [
+      [
+        0,
+        400,
+        220,
+        1080
+      ],
+      [
+        1700,
+        0,
+        1920,
+        600
+      ]
+    ]
+  },
+  {
+    "source": "work/frames/s015-022.300.png",
+    "art": "assets/lynn/s015-022.300.png",
+    "start": 22.25,
+    "end": 22.375,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "source": "work/frames/frame-537.png",
+    "art": "assets/lynn/frame-537.png",
+    "start": 22.375,
+    "end": 22.5,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "protect": [
+      [
+        0,
+        0,
+        220,
+        1080
+      ],
+      [
+        1700,
+        0,
+        1920,
+        1080
+      ]
+    ]
+  },
+  {
+    "source": "work/frames/frame-540.png",
+    "art": "assets/lynn/frame-540.png",
+    "start": 22.5,
+    "end": 22.75,
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "protect": [
+      [
+        0,
+        0,
+        220,
+        1080
+      ],
+      [
+        1700,
+        0,
+        1920,
+        1080
+      ]
+    ]
+  }
+]

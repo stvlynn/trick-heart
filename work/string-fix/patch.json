@@ -1,0 +1,70 @@
+[
+  {
+    "source": "work/frames/s042-058.500.png",
+    "art": "assets/lynn/s042-058.500.png",
+    "start": 58.375,
+    "end": 61.125,
+    "regions": [
+      [
+        1070,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
+  },
+  {
+    "source": "work/frames/s043-061.400.png",
+    "art": "assets/lynn/s043-061.400.png",
+    "start": 61.125,
+    "end": 64.291666667,
+    "regions": [
+      [
+        0,
+        0,
+        1070,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
+  },
+  {
+    "source": "work/frames/s044-064.500.png",
+    "art": "assets/lynn/s044-064.500.png",
+    "start": 64.291666667,
+    "end": 66.041666667,
+    "regions": [
+      [
+        450,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
+  },
+  {
+    "source": "work/frames/s045-066.300.png",
+    "art": "assets/lynn/s045-066.300.png",
+    "start": 66.041666667,
+    "end": 67.958333333,
+    "regions": [
+      [
+        0,
+        0,
+        1490,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "restore_overlays": true,
+    "static": true
+  }
+]
