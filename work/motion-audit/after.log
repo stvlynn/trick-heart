@@ -1,0 +1,466 @@
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+[h264 @ 0x12765a2a0] mmco: unref short failure
+{
+  "frames": 3768,
+  "candidates": 22,
+  "top": [
+    {
+      "plate": 61,
+      "start": 128.458333333,
+      "end": 134.958333333,
+      "art": "assets/lynn/s076-129.000.png",
+      "source_clusters": 7,
+      "delivery_clusters": 2,
+      "suppressed_events": [
+        3087,
+        3088,
+        3093,
+        3099,
+        3104,
+        3105,
+        3111,
+        3112,
+        3117,
+        3120,
+        3123,
+        3128,
+        3129,
+        3136,
+        3141,
+        3144,
+        3147,
+        3152,
+        3153,
+        3160,
+        3165,
+        3168,
+        3171,
+        3176,
+        3177,
+        3183,
+        3189,
+        3192,
+        3195,
+        3200,
+        3201,
+        3213,
+        3216,
+        3219,
+        3224,
+        3225,
+        3231,
+        3232,
+        3237
+      ],
+      "score": 136.5,
+      "representative_frames": [
+        3083,
+        3085,
+        3088,
+        3093,
+        3104,
+        3120,
+        3160
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 10,
+      "start": 25.875,
+      "end": 29.3333333,
+      "art": "assets/lynn/s018-026.200.png",
+      "source_clusters": 15,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        631,
+        632,
+        635,
+        639,
+        640,
+        645,
+        647,
+        651,
+        654,
+        657,
+        663,
+        669,
+        675,
+        677,
+        681,
+        686,
+        687,
+        693,
+        699,
+        701
+      ],
+      "score": 75.0,
+      "representative_frames": [
+        621,
+        625,
+        627,
+        631,
+        632,
+        635,
+        639,
+        640,
+        647,
+        651,
+        654,
+        657,
+        661,
+        663,
+        669
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 71,
+      "start": 151.25,
+      "end": 152.75,
+      "art": "assets/lynn/s089-151.500.png",
+      "source_clusters": 6,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        3636,
+        3638,
+        3642,
+        3646,
+        3648,
+        3654,
+        3660,
+        3662
+      ],
+      "score": 48.0,
+      "representative_frames": [
+        3630,
+        3636,
+        3638,
+        3642,
+        3646,
+        3648
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 46,
+      "start": 80.416666667,
+      "end": 83.625,
+      "art": "assets/lynn/s053-080.600.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1936,
+        1942,
+        1954,
+        1960,
+        1966,
+        1972,
+        1978,
+        1990,
+        1996,
+        2002
+      ],
+      "score": 30.0,
+      "representative_frames": [
+        1930,
+        1936,
+        1948
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 43,
+      "start": 67.958333333,
+      "end": 71.166666667,
+      "art": "assets/lynn/s046-068.300.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1637,
+        1643,
+        1649,
+        1673,
+        1679,
+        1685,
+        1691,
+        1697,
+        1703
+      ],
+      "score": 27.0,
+      "representative_frames": [
+        1631,
+        1673,
+        1691
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 72,
+      "start": 152.75,
+      "end": 154.083333333,
+      "art": "assets/lynn/s090-153.000.png",
+      "source_clusters": 4,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        3670,
+        3678,
+        3684,
+        3686,
+        3694,
+        3696
+      ],
+      "score": 24.0,
+      "representative_frames": [
+        3666,
+        3670,
+        3678,
+        3686
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 70,
+      "start": 147.625,
+      "end": 151.25,
+      "art": "assets/lynn/s088-148.000.png",
+      "source_clusters": 7,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        3584,
+        3590,
+        3596,
+        3602,
+        3606,
+        3608,
+        3614,
+        3620,
+        3626
+      ],
+      "score": 21.0,
+      "representative_frames": [
+        3543,
+        3546,
+        3582,
+        3584,
+        3590,
+        3596,
+        3606
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 38,
+      "start": 54.875,
+      "end": 55.333333333,
+      "art": "assets/lynn/bubbles-055000.png",
+      "source_clusters": 5,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1318,
+        1319,
+        1320,
+        1321
+      ],
+      "score": 20.0,
+      "representative_frames": [
+        1317,
+        1318,
+        1319,
+        1320,
+        1321
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 53,
+      "start": 98.625,
+      "end": 100.041666667,
+      "art": "assets/lynn/s063-099.000.png",
+      "source_clusters": 2,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        2373,
+        2379,
+        2385,
+        2391,
+        2397
+      ],
+      "score": 10.0,
+      "representative_frames": [
+        2367,
+        2373
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 69,
+      "start": 146.208333333,
+      "end": 147.625,
+      "art": "assets/lynn/s087-146.500.png",
+      "source_clusters": 6,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        3510,
+        3515,
+        3518,
+        3526,
+        3542
+      ],
+      "score": 10.0,
+      "representative_frames": [
+        3509,
+        3510,
+        3515,
+        3518,
+        3522,
+        3542
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 37,
+      "start": 54.5,
+      "end": 55.333333333,
+      "art": "assets/lynn/bubbles-055000.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1309,
+        1310,
+        1311
+      ],
+      "score": 9.0,
+      "representative_frames": [
+        1308,
+        1309,
+        1311
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 44,
+      "start": 71.166666667,
+      "end": 74,
+      "art": "assets/lynn/s048-073.200.png",
+      "source_clusters": 3,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        1714,
+        1720,
+        1726,
+        1738,
+        1750,
+        1762,
+        1768,
+        1774
+      ],
+      "score": 8,
+      "representative_frames": [
+        1708,
+        1714,
+        1726
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 51,
+      "start": 92.3333333333,
+      "end": 93.125,
+      "art": "assets/lynn/s059-091.800.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        2222,
+        2224
+      ],
+      "score": 6.0,
+      "representative_frames": [
+        2216,
+        2222,
+        2224
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 2,
+      "start": 13.5416667,
+      "end": 15.0833333,
+      "art": "assets/lynn/s006-014.500.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [
+        331,
+        337,
+        343,
+        349,
+        355
+      ],
+      "score": 5,
+      "representative_frames": [
+        325,
+        331
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 25,
+      "start": 37.541666667,
+      "end": 38.75,
+      "art": "assets/lynn/s023-037.700.png",
+      "source_clusters": 1,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        907,
+        913,
+        919,
+        925
+      ],
+      "score": 4,
+      "representative_frames": [
+        901
+      ],
+      "candidate": true
+    }
+  ],
+  "large_changes": [
+    {
+      "frame": 632,
+      "time": 26.333333333333332,
+      "source_change": 14.157754629629629,
+      "delivery_change": 0.016087962962962964
+    },
+    {
+      "frame": 1309,
+      "time": 54.541666666666664,
+      "source_change": 21.19851851851852,
+      "delivery_change": 4.938703703703704
+    },
+    {
+      "frame": 1318,
+      "time": 54.916666666666664,
+      "source_change": 12.270532407407407,
+      "delivery_change": 0.021157407407407406
+    },
+    {
+      "frame": 1319,
+      "time": 54.958333333333336,
+      "source_change": 16.393541666666668,
+      "delivery_change": 0.026689814814814816
+    },
+    {
+      "frame": 1321,
+      "time": 55.041666666666664,
+      "source_change": 14.522800925925926,
+      "delivery_change": 1.8031481481481482
+    }
+  ]
+}

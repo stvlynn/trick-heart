@@ -1,0 +1,134 @@
+[
+  {
+    "start": 103.0,
+    "end": 116.04166666666667,
+    "source": "work/juggle-v2/f2496.png",
+    "art": "assets/lynn/juggle-v2-2496.png",
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "whole_body_tracks": "work/juggle-v2/body-tracks.json"
+  },
+  {
+    "start": 139.83333333333334,
+    "end": 140.125,
+    "source": "work/juggle-v2/f3360.png",
+    "art": "assets/lynn/look-v2-3360.png",
+    "regions": [
+      [
+        420,
+        475,
+        1640,
+        1080
+      ],
+      [
+        590,
+        245,
+        1345,
+        475
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "source_gold_particles": true
+  },
+  {
+    "start": 140.125,
+    "end": 140.41666666666666,
+    "source": "work/juggle-v2/f3364.png",
+    "art": "assets/lynn/look-v2-3364.png",
+    "regions": [
+      [
+        420,
+        475,
+        1640,
+        1080
+      ],
+      [
+        590,
+        245,
+        1345,
+        475
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "source_gold_particles": true
+  },
+  {
+    "start": 140.41666666666666,
+    "end": 140.70833333333334,
+    "source": "work/juggle-v2/f3372.png",
+    "art": "assets/lynn/look-v2-3372.png",
+    "regions": [
+      [
+        420,
+        475,
+        1640,
+        1080
+      ],
+      [
+        590,
+        245,
+        1345,
+        475
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "source_gold_particles": true
+  },
+  {
+    "start": 140.70833333333334,
+    "end": 141.04166666666666,
+    "source": "work/juggle-v2/f3364.png",
+    "art": "assets/lynn/look-v2-3364.png",
+    "regions": [
+      [
+        420,
+        475,
+        1640,
+        1080
+      ],
+      [
+        590,
+        245,
+        1345,
+        475
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "source_gold_particles": true
+  },
+  {
+    "start": 141.04166666666666,
+    "end": 141.54166666666666,
+    "source": "work/juggle-v2/f3372.png",
+    "art": "assets/lynn/look-v2-3372.png",
+    "regions": [
+      [
+        420,
+        475,
+        1640,
+        1080
+      ],
+      [
+        590,
+        245,
+        1345,
+        475
+      ]
+    ],
+    "full_patch": true,
+    "static": true,
+    "source_gold_particles": true
+  }
+]

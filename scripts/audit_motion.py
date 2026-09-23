@@ -41,8 +41,8 @@ def cluster(arr, threshold):
         else:ids.append(len(reps));reps.append(a.astype(float));repindices.append(i)
     return ids,repindices
 
-def run(video,out,threshold=5):
-    specs=json.loads((ROOT/'work/timeline.json').read_text())
+def run(video,out,threshold=5,manifest=None):
+    specs=json.loads(Path(manifest or ROOT/'work/timeline.json').read_text())
     out.mkdir(parents=True,exist_ok=True)
     source=cv2.VideoCapture(str(ROOT/'trick-heart-original.mp4'))
     delivery=cv2.VideoCapture(str(video));data={};events=[];previous=None;n=0
@@ -86,4 +86,4 @@ def run(video,out,threshold=5):
     print(json.dumps(dict(frames=n,candidates=len(candidates),top=candidates[:15],large_changes=events),indent=2))
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--video',default=str(ROOT/'output/Trick-Heart-Lynn-PV.mp4'));p.add_argument('--out',default=str(ROOT/'work/motion-audit/before'));p.add_argument('--threshold',type=float,default=5);a=p.parse_args();run(Path(a.video),Path(a.out),a.threshold)
+    p=argparse.ArgumentParser();p.add_argument('--video',default=str(ROOT/'output/Trick-Heart-Lynn-PV.mp4'));p.add_argument('--out',default=str(ROOT/'work/motion-audit/before'));p.add_argument('--threshold',type=float,default=5);p.add_argument('--manifest');a=p.parse_args();run(Path(a.video),Path(a.out),a.threshold,a.manifest)

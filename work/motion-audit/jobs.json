@@ -1,0 +1,209 @@
+[
+  {
+    "frame": 939,
+    "plate": 26,
+    "costume": "B",
+    "note": "Eyes closed laughing warmly, rabbit cuddled at cheek, hands exactly match source.",
+    "source": "work/motion-audit/details/f939.png",
+    "master": "assets/lynn/s024-039.000.png",
+    "art": "assets/lynn/repair-939.png"
+  },
+  {
+    "frame": 948,
+    "plate": 26,
+    "costume": "B",
+    "note": "One eye winking, open surprised mouth, rabbit landing on top of head, both hands raised as in source.",
+    "source": "work/motion-audit/details/f948.png",
+    "master": "assets/lynn/s024-039.000.png",
+    "art": "assets/lynn/repair-948.png"
+  },
+  {
+    "frame": 964,
+    "plate": 27,
+    "costume": "B",
+    "note": "Both eyes closed, mild smile, palms raised, rabbit balanced on beret.",
+    "source": "work/motion-audit/details/f964.png",
+    "master": "assets/lynn/s025-040.000.png",
+    "art": "assets/lynn/repair-964.png"
+  },
+  {
+    "frame": 1097,
+    "plate": 29,
+    "costume": "B",
+    "note": "Medium shot turning body to look back at viewer, eyes open. Exact source crop and scale, not full body.",
+    "source": "work/motion-audit/details/f1097.png",
+    "master": "assets/lynn/s030-045.500.png",
+    "art": "assets/lynn/repair-1097.png"
+  },
+  {
+    "frame": 1100,
+    "plate": 30,
+    "costume": "B",
+    "note": "Closer shot turning toward viewer, curious wide open eyes and small O mouth, match source framing.",
+    "source": "work/motion-audit/details/f1100.png",
+    "master": "assets/lynn/s031-046.300.png",
+    "art": "assets/lynn/repair-1100.png"
+  },
+  {
+    "frame": 1114,
+    "plate": 30,
+    "costume": "B",
+    "note": "Gentle closed mouth smile with open soft eyes, head slightly lowered, exact source framing.",
+    "source": "work/motion-audit/details/f1114.png",
+    "master": "assets/lynn/s031-046.300.png",
+    "art": "assets/lynn/repair-1114.png"
+  },
+  {
+    "frame": 1233,
+    "plate": 35,
+    "costume": "A",
+    "note": "Eyes closed modest bow, one white gloved hand pressed to chest, other hand on hip, match source pose.",
+    "source": "work/motion-audit/details/f1233.png",
+    "master": "assets/lynn/s036-051.300.png",
+    "art": "assets/lynn/repair-1233.png"
+  },
+  {
+    "frame": 2139,
+    "plate": 49,
+    "costume": "A",
+    "note": "Side profile at extreme right edge facing left, eye OPEN, closed mouth; keep source layout and scale.",
+    "source": "work/motion-audit/details/f2139.png",
+    "master": "assets/lynn/s058-090.000.png",
+    "art": "assets/lynn/repair-2139.png"
+  },
+  {
+    "frame": 2410,
+    "plate": 54,
+    "costume": "B",
+    "note": "Both eyes wide with open surprised mouth, yellow flower growing larger in front; exactly match source flower size and location.",
+    "source": "work/motion-audit/details/f2410.png",
+    "master": "assets/lynn/s064-100.200.png",
+    "art": "assets/lynn/repair-2410.png"
+  },
+  {
+    "frame": 2419,
+    "plate": 54,
+    "costume": "B",
+    "note": "Comical spiral pupils visible through round glasses, shocked mouth; very large yellow flower masks one side of face. Exact source pose and flower silhouette.",
+    "source": "work/motion-audit/details/f2419.png",
+    "master": "assets/lynn/s064-100.200.png",
+    "art": "assets/lynn/repair-2419.png"
+  },
+  {
+    "frame": 2428,
+    "plate": 54,
+    "costume": "B",
+    "note": "Both eyes squeezed shut, recoiling as flower bursts, preserve the exact white burst and large flower from source.",
+    "source": "work/motion-audit/details/f2428.png",
+    "master": "assets/lynn/s064-100.200.png",
+    "art": "assets/lynn/repair-2428.png"
+  },
+  {
+    "frame": 2437,
+    "plate": 55,
+    "costume": "B",
+    "note": "Both eyes closed, calm relieved expression, holding blue card exactly as source, source smoke and sparkles retained.",
+    "source": "work/motion-audit/details/f2437.png",
+    "master": "assets/lynn/s065-101.700.png",
+    "art": "assets/lynn/repair-2437.png"
+  },
+  {
+    "frame": 2449,
+    "plate": 55,
+    "costume": "B",
+    "note": "Both eyes OPEN and round, small O mouth, holding blue card, source pose exactly.",
+    "source": "work/motion-audit/details/f2449.png",
+    "master": "assets/lynn/s065-101.700.png",
+    "art": "assets/lynn/repair-2449.png"
+  },
+  {
+    "frame": 1425,
+    "plate": 39,
+    "costume": "B",
+    "note": "Alternate in-place drawing matching source head angle, hair silhouette flow, eye direction and hand-on-cup position; clear subtle redraw, not mere whole-image translation.",
+    "source": "work/motion-audit/details/f1425.png",
+    "master": "assets/lynn/s042-058.500.png",
+    "art": "assets/lynn/repair-1425.png"
+  },
+  {
+    "frame": 1479,
+    "plate": 40,
+    "costume": "A",
+    "note": "Alternate in-place drawing matching source closed-eye head angle, hair, hand/cup placement and shoulder line; subtly different pose from master.",
+    "source": "work/motion-audit/details/f1479.png",
+    "master": "assets/lynn/s043-061.400.png",
+    "art": "assets/lynn/repair-1479.png"
+  },
+  {
+    "frame": 1567,
+    "plate": 41,
+    "costume": "B",
+    "note": "Alternate in-place drawing matching source wind-blown hair, raised cup, head angle and shoulders; preserve precise source cup and string anchor.",
+    "source": "work/motion-audit/details/f1567.png",
+    "master": "assets/lynn/s044-064.500.png",
+    "art": "assets/lynn/repair-1567.png"
+  },
+  {
+    "frame": 1609,
+    "plate": 42,
+    "costume": "A",
+    "note": "Alternate in-place drawing matching source head tilt, open mouth, arm and cup angle; preserve precise source cup and string anchor.",
+    "source": "work/motion-audit/details/f1609.png",
+    "master": "assets/lynn/s045-066.300.png",
+    "art": "assets/lynn/repair-1609.png"
+  },
+  {
+    "frame": 3005,
+    "plate": null,
+    "costume": "H",
+    "note": "Replace the upper-left sleeve with deep navy magician sleeve, cyan turned cuff and white glove. Replace right sleeve with white sailor blouse sleeve and double cyan cuff piping, bare hand. Preserve exact original hand poses, small cream panel and all text.",
+    "source": "work/motion-audit/details/f3005.png",
+    "master": "assets/lynn/s008-016.500.png",
+    "art": "assets/lynn/repair-3005.png"
+  },
+  {
+    "frame": 3012,
+    "plate": null,
+    "costume": "H",
+    "note": "Replace upper-left sleeve with deep navy magician sleeve, cyan cuff and white glove, replace right sleeve with white sailor blouse double cyan cuff, bare hand. Match source separated fingers/withdrawal pose exactly. Preserve small cream panel and all text.",
+    "source": "work/motion-audit/details/f3012.png",
+    "master": "assets/lynn/s008-016.500.png",
+    "art": "assets/lynn/repair-3012.png"
+  },
+  {
+    "frame": 3305,
+    "plate": 63,
+    "costume": "B",
+    "note": "Eyes CLOSED and serene, head turned over shoulder in the small cream inset. Match source character crop INSIDE inset exactly; no artwork outside original inset.",
+    "source": "work/motion-audit/details/f3305.png",
+    "master": "assets/lynn/s080-138.700.png",
+    "art": "assets/lynn/repair-3305.png"
+  },
+  {
+    "frame": 3335,
+    "plate": 64,
+    "costume": "B",
+    "note": "Turned over shoulder with both eyes OPEN, duck on beret, match original pose and position exactly.",
+    "source": "work/motion-audit/details/f3335.png",
+    "master": "assets/lynn/s080-138.700.png",
+    "art": "assets/lynn/repair-3335.png"
+  },
+  {
+    "frame": 3372,
+    "plate": 65,
+    "costume": "B",
+    "note": "Seated on sofa, torso and face turned distinctly toward screen RIGHT as source, bird on beret, hands and legs match source posture.",
+    "source": "work/motion-audit/details/f3372.png",
+    "master": "assets/lynn/s081-140.200.png",
+    "art": "assets/lynn/repair-3372.png"
+  },
+  {
+    "frame": 3378,
+    "plate": 65,
+    "costume": "B",
+    "note": "Seated on sofa, head and shoulders gently down and turned as source, bird on beret; exact source pose and body scale.",
+    "source": "work/motion-audit/details/f3378.png",
+    "master": "assets/lynn/s081-140.200.png",
+    "art": "assets/lynn/repair-3378.png"
+  }
+]

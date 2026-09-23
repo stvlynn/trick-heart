@@ -24,15 +24,16 @@ def finish_visible_cuffs(frame,t):
     if 42.4166667<=t<43.1666667:edits.append(('beret',800,695,1920,1080))
     if 92.3333333<=t<93.125:edits.extend([('cyan',0,600,1250,1080),('navy',0,600,1250,1080)])
     if t>=154.0833333:edits.append(('jacket',150,310,950,780))
-    if 135.3<=t<136.0416667:edits.append(('beret',570,500,1380,810))
+    if 135.3<=t<3281/24:edits.append(('beret',570,300,1380,810))
     if 42.4166667<=t<45.4583333:edits.append(('cyan',0,650,1100,1080))
     if 53.375<=t<53.9583333:edits.append(('hat',0,0,1920,1080))
+    if 849/24<=t<862/24:edits.append(('hat',0,650,1920,1080))
     if 77.625<=t<80.4166667:edits.append(('cyan',0,850,1920,1080))
     if 74<=t<80.4166667:edits.extend([('cyan',0,0,1920,1080),('navy',0,0,1920,1080)])
     if 102.2916667<=t<103:edits.append(('white',0,600,1920,1080))
     if 125.125<=t<126.5833333:edits.append(('white',650,300,1450,800))
     if 144.9166667<=t<146.2083333:edits.append(('white',500,250,1500,850))
-    if 103<=t<112.583333333:
+    if 103<=t<115.375:
         # Whole frame: the source jacket shoulders reach up to the collar line.
         edits.extend([('navy',0,0,1920,1080),('cyan',0,0,1920,1080)])
     for kind,x1,y1,x2,y2 in edits:
@@ -103,6 +104,9 @@ def background_color(im):
 class Plate:
     def __init__(self,spec):
         self.spec=spec
+        if spec.get('whole_body_tracks'):
+            from juggle_body import BodyAnimation
+            self.body_animation=BodyAnimation(ROOT,spec['whole_body_tracks'])
         self.ref=cv2.imread(str(ROOT/spec['source']))
         self.art=cv2.resize(cv2.imread(str(ROOT/spec['art'])),(W,H),interpolation=cv2.INTER_LANCZOS4)
         self.bg=background_color(self.ref)
@@ -155,6 +159,10 @@ class Plate:
         return mat,int(inliers.sum())
 
     def apply(self,frame,gray,features,frame_index=None):
+        if self.spec.get('source_passthrough'):
+            return frame,999
+        if self.spec.get('whole_body_tracks'):
+            return self.body_animation.apply(frame,frame_index,red_background,background_color),999
         if self.spec.get('anatomical_head'):
             from juggling import composite_head
             # Placement is precomputed per source drawing by scripts/track_juggling.py.
@@ -177,7 +185,23 @@ class Plate:
                 scale=np.sqrt(x[1]/rx[1]);delta=x[0]-rx[0]*scale
                 mat=np.array([[scale,0,delta[0]],[0,scale,delta[1]]],np.float64);confidence=999
         art=cv2.warpAffine(self.art,mat,(W,H),flags=cv2.INTER_LINEAR,borderValue=tuple(map(int,self.bg)))
+        if self.spec.get('local_motion'):
+            # Transfer local source redraw motion, not a whole-image oscillation.
+            # Large semantic changes use separately drawn plates; this is only
+            # for small within-pose hair/eyes/hands/clothing deformations.
+            current=cv2.resize(cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY),(480,270))
+            reference=cv2.resize(cv2.cvtColor(self.ref,cv2.COLOR_BGR2GRAY),(480,270))
+            flow=cv2.calcOpticalFlowFarneback(current,reference,None,.5,3,25,5,7,1.5,0)
+            flow=cv2.resize(cv2.GaussianBlur(flow,(9,9),0),(W,H))*4
+            flow=np.clip(flow,-self.spec.get('max_flow',28),self.spec.get('max_flow',28))
+            yy,xx=np.mgrid[:H,:W].astype(np.float32)
+            art=cv2.remap(art,xx+flow[:,:,0],yy+flow[:,:,1],cv2.INTER_LINEAR,borderMode=cv2.BORDER_REPLICATE)
         art[red_background(art)]=self.spec.get('background',background_color(frame))
+        if self.spec.get('source_gold_particles'):
+            b,g,r=cv2.split(art.astype(float))
+            gold=((r>215)&(g>150)&(g<235)&(b>100)&(b<205)&(r-b>30)).astype(np.uint8);gold[475:]=0
+            gold=cv2.dilate(gold,np.ones((3,3),np.uint8))>0
+            art[gold]=background_color(frame)
         if self.spec.get('restore_overlays'):
             art=self.strip_plate_overlays(art,frame)
         alpha=cv2.warpAffine(self.alpha,mat,(W,H),flags=cv2.INTER_LINEAR).astype(np.float32)[...,None]/255
@@ -224,7 +248,59 @@ class Plate:
             output=self.follow_band(frame,art,output)
         if self.spec.get('restore_overlays'):
             output=self.restore_overlays(frame,art,output)
+        if self.spec.get('source_border'):
+            b,g,r=cv2.split(frame.astype(float))
+            cream=((r>195)&(g>195)&(b>175)&(r-b>3)&(r-b<45)).astype(np.uint8)
+            n,lab,stats,_=cv2.connectedComponentsWithStats(cream)
+            keep=[i for i in range(1,n) if stats[i,4]>1000 and (stats[i,0]==0 or stats[i,1]==0 or stats[i,0]+stats[i,2]>=W or stats[i,1]+stats[i,3]>=H)]
+            edge=cv2.dilate(np.isin(lab,keep).astype(np.uint8),np.ones((9,9),np.uint8))>0
+            output[edge]=frame[edge]
+        if self.spec.get('source_gold_particles'):
+            b,g,r=cv2.split(frame.astype(float))
+            gold=((r>215)&(g>150)&(g<235)&(b>100)&(b<205)&(r-b>30)).astype(np.uint8);gold[475:]=0
+            mask=(cv2.dilate(gold,np.ones((3,3),np.uint8))>0)&red_background(art)
+            output[mask]=frame[mask]
+        if self.spec.get('source_particles'):
+            output=self.restore_particles(frame,output)
+        if self.spec.get('restore_wind'):
+            output=self.restore_wind(frame,output)
+        if self.spec.get('source_white_foreground'):
+            b,g,r=cv2.split(frame.astype(float))
+            white=((np.minimum.reduce([b,g,r])>225)&(np.maximum.reduce([b,g,r])-np.minimum.reduce([b,g,r])<18)).astype(np.uint8)
+            n,lab,stats,_=cv2.connectedComponentsWithStats(white)
+            mask=cv2.dilate(np.isin(lab,[i for i in range(1,n) if stats[i,4]>18000]).astype(np.uint8),np.ones((3,3),np.uint8))>0
+            output[mask]=frame[mask]
         return output,confidence
+
+    def restore_particles(self,frame,output):
+        b,g,r=cv2.split(frame.astype(float))
+        white=((np.minimum.reduce([b,g,r])>225)&(np.maximum.reduce([b,g,r])-np.minimum.reduce([b,g,r])<22)).astype(np.uint8)
+        skin=((r>225)&(b>180)&(g>180)&(r-b>15)&(r-b<70)&(np.abs(g-b)<20)).astype(np.uint8)
+        face=np.zeros((H,W),np.uint8)
+        count,labels,stats,_=cv2.connectedComponentsWithStats(skin)
+        if count>1:
+            k=1+np.argmax(stats[1:,4]);points=cv2.findNonZero((labels==k).astype(np.uint8))
+            if points is not None:cv2.fillConvexPoly(face,cv2.convexHull(points),1)
+        n,lab,stats,_=cv2.connectedComponentsWithStats(white);mask=np.zeros((H,W),np.uint8)
+        for i in range(1,n):
+            if 100<stats[i,4]<12000 and max(stats[i,2:4])<160 and np.mean(face[lab==i])<.2:mask[lab==i]=1
+        mask=cv2.dilate(mask,np.ones((5,5),np.uint8))
+        text=((r>215)&(g>150)&(g<235)&(b>100)&(b<205)&(r-b>30)).astype(np.uint8);text[190:]=0
+        output[mask>0]=frame[mask>0]
+        # Keep glyph cores without copying the old red hair around their edges.
+        output[text>0]=frame[text>0]
+        return output
+
+    def restore_wind(self,frame,output):
+        b,g,r=cv2.split(frame.astype(float))
+        white=((np.minimum.reduce([b,g,r])>200)&(np.maximum.reduce([b,g,r])-np.minimum.reduce([b,g,r])<28)).astype(np.uint8)
+        thick=cv2.dilate((cv2.distanceTransform(white,cv2.DIST_L2,5)>9).astype(np.uint8),np.ones((19,19),np.uint8))
+        thin=white.copy();thin[thick>0]=0
+        n,lab,stats,_=cv2.connectedComponentsWithStats(thin)
+        keep=[i for i in range(1,n) if max(stats[i,2:4])>85 and stats[i,4]>100]
+        mask=cv2.dilate(np.isin(lab,keep).astype(np.uint8),np.ones((3,3),np.uint8))>0
+        output[mask]=frame[mask]
+        return output
 
     def strip_plate_overlays(self,art,frame):
         """Remove the plate's own copy of backdrop overlays (the telephone string,
@@ -332,7 +408,8 @@ def render(manifest,start,end,destination,base=None):
         active=[p for p in plates if round(p.spec['start']*FPS)<=n<round(p.spec['end']*FPS)]
         if active:
             gray=cv2.resize(cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY),(960,540))
-            features=detector.detectAndCompute(gray,None)
+            needs_features=any(not p.spec.get('static') and not p.spec.get('anatomical_head') and not p.spec.get('source_passthrough') for p in active)
+            features=detector.detectAndCompute(gray,None) if needs_features else ([],None)
             for p in active:
                 frame,confidence=p.apply(frame,gray,features,n)
                 if confidence<8:report.append({'frame':n,'plate':p.spec['art'],'inliers':confidence})

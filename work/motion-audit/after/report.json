@@ -1,0 +1,1235 @@
+{
+  "video": "output/Trick-Heart-Lynn-PV.mp4",
+  "decoded_frames": 3768,
+  "cluster_threshold": 5,
+  "method": "foreground component filtering, bounding-box normalization, drawing clustering, temporal change ratio",
+  "limitations": "Heuristic candidates: hair redraws, camera changes, occlusion, lyrics and particles can cause false positives. Manual review required.",
+  "suppressed_large_changes": [
+    {
+      "frame": 632,
+      "time": 26.333333333333332,
+      "source_change": 14.157754629629629,
+      "delivery_change": 0.016087962962962964
+    },
+    {
+      "frame": 1309,
+      "time": 54.541666666666664,
+      "source_change": 21.19851851851852,
+      "delivery_change": 4.938703703703704
+    },
+    {
+      "frame": 1318,
+      "time": 54.916666666666664,
+      "source_change": 12.270532407407407,
+      "delivery_change": 0.021157407407407406
+    },
+    {
+      "frame": 1319,
+      "time": 54.958333333333336,
+      "source_change": 16.393541666666668,
+      "delivery_change": 0.026689814814814816
+    },
+    {
+      "frame": 1321,
+      "time": 55.041666666666664,
+      "source_change": 14.522800925925926,
+      "delivery_change": 1.8031481481481482
+    }
+  ],
+  "shots": [
+    {
+      "plate": 61,
+      "start": 128.458333333,
+      "end": 134.958333333,
+      "art": "assets/lynn/s076-129.000.png",
+      "source_clusters": 7,
+      "delivery_clusters": 2,
+      "suppressed_events": [
+        3087,
+        3088,
+        3093,
+        3099,
+        3104,
+        3105,
+        3111,
+        3112,
+        3117,
+        3120,
+        3123,
+        3128,
+        3129,
+        3136,
+        3141,
+        3144,
+        3147,
+        3152,
+        3153,
+        3160,
+        3165,
+        3168,
+        3171,
+        3176,
+        3177,
+        3183,
+        3189,
+        3192,
+        3195,
+        3200,
+        3201,
+        3213,
+        3216,
+        3219,
+        3224,
+        3225,
+        3231,
+        3232,
+        3237
+      ],
+      "score": 136.5,
+      "representative_frames": [
+        3083,
+        3085,
+        3088,
+        3093,
+        3104,
+        3120,
+        3160
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 10,
+      "start": 25.875,
+      "end": 29.3333333,
+      "art": "assets/lynn/s018-026.200.png",
+      "source_clusters": 15,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        631,
+        632,
+        635,
+        639,
+        640,
+        645,
+        647,
+        651,
+        654,
+        657,
+        663,
+        669,
+        675,
+        677,
+        681,
+        686,
+        687,
+        693,
+        699,
+        701
+      ],
+      "score": 75.0,
+      "representative_frames": [
+        621,
+        625,
+        627,
+        631,
+        632,
+        635,
+        639,
+        640,
+        647,
+        651,
+        654,
+        657,
+        661,
+        663,
+        669
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 71,
+      "start": 151.25,
+      "end": 152.75,
+      "art": "assets/lynn/s089-151.500.png",
+      "source_clusters": 6,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        3636,
+        3638,
+        3642,
+        3646,
+        3648,
+        3654,
+        3660,
+        3662
+      ],
+      "score": 48.0,
+      "representative_frames": [
+        3630,
+        3636,
+        3638,
+        3642,
+        3646,
+        3648
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 46,
+      "start": 80.416666667,
+      "end": 83.625,
+      "art": "assets/lynn/s053-080.600.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1936,
+        1942,
+        1954,
+        1960,
+        1966,
+        1972,
+        1978,
+        1990,
+        1996,
+        2002
+      ],
+      "score": 30.0,
+      "representative_frames": [
+        1930,
+        1936,
+        1948
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 43,
+      "start": 67.958333333,
+      "end": 71.166666667,
+      "art": "assets/lynn/s046-068.300.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1637,
+        1643,
+        1649,
+        1673,
+        1679,
+        1685,
+        1691,
+        1697,
+        1703
+      ],
+      "score": 27.0,
+      "representative_frames": [
+        1631,
+        1673,
+        1691
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 72,
+      "start": 152.75,
+      "end": 154.083333333,
+      "art": "assets/lynn/s090-153.000.png",
+      "source_clusters": 4,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        3670,
+        3678,
+        3684,
+        3686,
+        3694,
+        3696
+      ],
+      "score": 24.0,
+      "representative_frames": [
+        3666,
+        3670,
+        3678,
+        3686
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 70,
+      "start": 147.625,
+      "end": 151.25,
+      "art": "assets/lynn/s088-148.000.png",
+      "source_clusters": 7,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        3584,
+        3590,
+        3596,
+        3602,
+        3606,
+        3608,
+        3614,
+        3620,
+        3626
+      ],
+      "score": 21.0,
+      "representative_frames": [
+        3543,
+        3546,
+        3582,
+        3584,
+        3590,
+        3596,
+        3606
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 38,
+      "start": 54.875,
+      "end": 55.333333333,
+      "art": "assets/lynn/bubbles-055000.png",
+      "source_clusters": 5,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1318,
+        1319,
+        1320,
+        1321
+      ],
+      "score": 20.0,
+      "representative_frames": [
+        1317,
+        1318,
+        1319,
+        1320,
+        1321
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 53,
+      "start": 98.625,
+      "end": 100.041666667,
+      "art": "assets/lynn/s063-099.000.png",
+      "source_clusters": 2,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        2373,
+        2379,
+        2385,
+        2391,
+        2397
+      ],
+      "score": 10.0,
+      "representative_frames": [
+        2367,
+        2373
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 69,
+      "start": 146.208333333,
+      "end": 147.625,
+      "art": "assets/lynn/s087-146.500.png",
+      "source_clusters": 6,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        3510,
+        3515,
+        3518,
+        3526,
+        3542
+      ],
+      "score": 10.0,
+      "representative_frames": [
+        3509,
+        3510,
+        3515,
+        3518,
+        3522,
+        3542
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 37,
+      "start": 54.5,
+      "end": 55.333333333,
+      "art": "assets/lynn/bubbles-055000.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        1309,
+        1310,
+        1311
+      ],
+      "score": 9.0,
+      "representative_frames": [
+        1308,
+        1309,
+        1311
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 44,
+      "start": 71.166666667,
+      "end": 74,
+      "art": "assets/lynn/s048-073.200.png",
+      "source_clusters": 3,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        1714,
+        1720,
+        1726,
+        1738,
+        1750,
+        1762,
+        1768,
+        1774
+      ],
+      "score": 8,
+      "representative_frames": [
+        1708,
+        1714,
+        1726
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 51,
+      "start": 92.3333333333,
+      "end": 93.125,
+      "art": "assets/lynn/s059-091.800.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        2222,
+        2224
+      ],
+      "score": 6.0,
+      "representative_frames": [
+        2216,
+        2222,
+        2224
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 2,
+      "start": 13.5416667,
+      "end": 15.0833333,
+      "art": "assets/lynn/s006-014.500.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [
+        331,
+        337,
+        343,
+        349,
+        355
+      ],
+      "score": 5,
+      "representative_frames": [
+        325,
+        331
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 25,
+      "start": 37.541666667,
+      "end": 38.75,
+      "art": "assets/lynn/s023-037.700.png",
+      "source_clusters": 1,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        907,
+        913,
+        919,
+        925
+      ],
+      "score": 4,
+      "representative_frames": [
+        901
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 48,
+      "start": 86.708333333,
+      "end": 88.625,
+      "art": "assets/lynn/s056-087.000.png",
+      "source_clusters": 2,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        2087,
+        2093,
+        2117,
+        2123
+      ],
+      "score": 4,
+      "representative_frames": [
+        2081,
+        2087
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 65,
+      "start": 139.833333333,
+      "end": 141.541666667,
+      "art": "assets/lynn/s081-140.200.png",
+      "source_clusters": 3,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        3366,
+        3374,
+        3382
+      ],
+      "score": 3,
+      "representative_frames": [
+        3356,
+        3366,
+        3382
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 66,
+      "start": 141.541666667,
+      "end": 143.25,
+      "art": "assets/lynn/s082-141.800.png",
+      "source_clusters": 6,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        3398,
+        3406
+      ],
+      "score": 3.0,
+      "representative_frames": [
+        3397,
+        3398,
+        3406,
+        3417,
+        3422,
+        3430
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 1,
+      "start": 10,
+      "end": 13.5416667,
+      "art": "assets/lynn/duo-010.png",
+      "source_clusters": 1,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        282,
+        288
+      ],
+      "score": 2,
+      "representative_frames": [
+        240
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 49,
+      "start": 88.625,
+      "end": 91.541666667,
+      "art": "assets/lynn/s058-090.000.png",
+      "source_clusters": 14,
+      "delivery_clusters": 16,
+      "suppressed_events": [
+        2139,
+        2151
+      ],
+      "score": 2,
+      "representative_frames": [
+        2127,
+        2131,
+        2135,
+        2139,
+        2143,
+        2147,
+        2151,
+        2155,
+        2157,
+        2159,
+        2164,
+        2169,
+        2170,
+        2172
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 60,
+      "start": 123.75,
+      "end": 125.125,
+      "art": "assets/lynn/s074-124.000.png",
+      "source_clusters": 2,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        2976,
+        2988
+      ],
+      "score": 2,
+      "representative_frames": [
+        2970,
+        2976
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 67,
+      "start": 143.25,
+      "end": 144.041666667,
+      "art": "assets/lynn/s084-143.500.png",
+      "source_clusters": 2,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        3454
+      ],
+      "score": 2.0,
+      "representative_frames": [
+        3438,
+        3454
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 68,
+      "start": 144.041666667,
+      "end": 144.916666667,
+      "art": "assets/lynn/s085-144.300.png",
+      "source_clusters": 2,
+      "delivery_clusters": 1,
+      "suppressed_events": [
+        3462
+      ],
+      "score": 2.0,
+      "representative_frames": [
+        3457,
+        3462
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 27,
+      "start": 39.916666667,
+      "end": 40.791666667,
+      "art": "assets/lynn/s025-040.000.png",
+      "source_clusters": 4,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        975
+      ],
+      "score": 1.3333333333333333,
+      "representative_frames": [
+        958,
+        964,
+        969,
+        975
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 55,
+      "start": 101.541666667,
+      "end": 102.291666667,
+      "art": "assets/lynn/s065-101.700.png",
+      "source_clusters": 4,
+      "delivery_clusters": 3,
+      "suppressed_events": [
+        2442
+      ],
+      "score": 1.3333333333333333,
+      "representative_frames": [
+        2437,
+        2440,
+        2442,
+        2448
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 64,
+      "start": 138.375,
+      "end": 139.833333333,
+      "art": "assets/lynn/s080-138.700.png",
+      "source_clusters": 8,
+      "delivery_clusters": 7,
+      "suppressed_events": [
+        3352
+      ],
+      "score": 1.1428571428571428,
+      "representative_frames": [
+        3321,
+        3328,
+        3335,
+        3336,
+        3342,
+        3344,
+        3349,
+        3352
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 3,
+      "start": 14.2916667,
+      "end": 15.0833333,
+      "art": "assets/lynn/s006-014.500.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [
+        361
+      ],
+      "score": 1,
+      "representative_frames": [
+        343,
+        349
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 28,
+      "start": 40.791666667,
+      "end": 42.416666667,
+      "art": "assets/lynn/s026-041.200.png",
+      "source_clusters": 4,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        980
+      ],
+      "score": 1,
+      "representative_frames": [
+        979,
+        980,
+        982,
+        988
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 45,
+      "start": 72.875,
+      "end": 74,
+      "art": "assets/lynn/s048-073.200.png",
+      "source_clusters": 3,
+      "delivery_clusters": 4,
+      "suppressed_events": [
+        1766
+      ],
+      "score": 1,
+      "representative_frames": [
+        1749,
+        1754,
+        1766
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 54,
+      "start": 100.041666667,
+      "end": 101.541666667,
+      "art": "assets/lynn/s064-100.200.png",
+      "source_clusters": 8,
+      "delivery_clusters": 8,
+      "suppressed_events": [
+        2428
+      ],
+      "score": 1,
+      "representative_frames": [
+        2401,
+        2410,
+        2419,
+        2427,
+        2428,
+        2430,
+        2432,
+        2434
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 0,
+      "start": 3.5833333333333335,
+      "end": 6.791666666666667,
+      "art": "assets/lynn/intro-003750.png",
+      "source_clusters": 2,
+      "delivery_clusters": 4,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        86,
+        88
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 4,
+      "start": 16.375,
+      "end": 18.5,
+      "art": "assets/lynn/s008-016.500.png",
+      "source_clusters": 1,
+      "delivery_clusters": 1,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        393
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 6,
+      "start": 18.708333333,
+      "end": 19.6666667,
+      "art": "assets/lynn/s014-019.400.png",
+      "source_clusters": 4,
+      "delivery_clusters": 4,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        449,
+        454,
+        459,
+        464
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 11,
+      "start": 29.333333333,
+      "end": 31,
+      "art": "assets/lynn/s019-029.500.png",
+      "source_clusters": 4,
+      "delivery_clusters": 6,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        704,
+        710,
+        712,
+        716
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 12,
+      "start": 31,
+      "end": 32.791666667,
+      "art": "assets/lynn/s020-031.200.png",
+      "source_clusters": 3,
+      "delivery_clusters": 4,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        744,
+        750,
+        756
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 24,
+      "start": 35.375,
+      "end": 37.5416667,
+      "art": "assets/lynn/s022-036.000.png",
+      "source_clusters": 8,
+      "delivery_clusters": 12,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        849,
+        852,
+        854,
+        857,
+        860,
+        862,
+        868,
+        874
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 26,
+      "start": 38.75,
+      "end": 39.916666667,
+      "art": "assets/lynn/s024-039.000.png",
+      "source_clusters": 3,
+      "delivery_clusters": 3,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        930,
+        939,
+        948
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 29,
+      "start": 45.458333333,
+      "end": 45.916666667,
+      "art": "assets/lynn/s030-045.500.png",
+      "source_clusters": 5,
+      "delivery_clusters": 5,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1091,
+        1092,
+        1093,
+        1095,
+        1099
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 30,
+      "start": 45.916666667,
+      "end": 46.583333333,
+      "art": "assets/lynn/s031-046.300.png",
+      "source_clusters": 5,
+      "delivery_clusters": 5,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1102,
+        1103,
+        1108,
+        1113,
+        1117
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 31,
+      "start": 46.583333333,
+      "end": 48.083333333,
+      "art": "assets/lynn/s032-047.300.png",
+      "source_clusters": 4,
+      "delivery_clusters": 3,
+      "suppressed_events": [],
+      "score": 0.0,
+      "representative_frames": [
+        1118,
+        1124,
+        1139,
+        1141
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 32,
+      "start": 48.083333333,
+      "end": 48.916666667,
+      "art": "assets/lynn/s033-048.300.png",
+      "source_clusters": 3,
+      "delivery_clusters": 3,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1154,
+        1160,
+        1165
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 33,
+      "start": 48.916666667,
+      "end": 50.333333333,
+      "art": "assets/lynn/s034-049.500.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1174,
+        1180
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 34,
+      "start": 50.333333333,
+      "end": 51,
+      "art": "assets/lynn/s035-050.500.png",
+      "source_clusters": 5,
+      "delivery_clusters": 5,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1208,
+        1209,
+        1210,
+        1211,
+        1213
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 35,
+      "start": 51,
+      "end": 51.833333333,
+      "art": "assets/lynn/s036-051.300.png",
+      "source_clusters": 4,
+      "delivery_clusters": 4,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1224,
+        1229,
+        1233,
+        1237
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 36,
+      "start": 51.833333333,
+      "end": 53.375,
+      "art": "assets/lynn/s037-052.100.png",
+      "source_clusters": 6,
+      "delivery_clusters": 5,
+      "suppressed_events": [],
+      "score": 0.0,
+      "representative_frames": [
+        1244,
+        1245,
+        1250,
+        1256,
+        1261,
+        1265
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 39,
+      "start": 58.375,
+      "end": 61.125,
+      "art": "assets/lynn/s042-058.500.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1401,
+        1402
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 40,
+      "start": 61.125,
+      "end": 64.291666667,
+      "art": "assets/lynn/s043-061.400.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1467,
+        1472
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 41,
+      "start": 64.291666667,
+      "end": 66.041666667,
+      "art": "assets/lynn/s044-064.500.png",
+      "source_clusters": 1,
+      "delivery_clusters": 2,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1543
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 42,
+      "start": 66.041666667,
+      "end": 67.958333333,
+      "art": "assets/lynn/s045-066.300.png",
+      "source_clusters": 1,
+      "delivery_clusters": 1,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        1585
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 47,
+      "start": 83.625,
+      "end": 85.083333333,
+      "art": "assets/lynn/s054-084.000.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        2007,
+        2013
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 50,
+      "start": 91.541666667,
+      "end": 92.3333333333,
+      "art": "assets/lynn/s059-091.800.png",
+      "source_clusters": 3,
+      "delivery_clusters": 3,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        2197,
+        2208,
+        2213
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 52,
+      "start": 96.416666667,
+      "end": 98.625,
+      "art": "assets/lynn/s062-096.700.png",
+      "source_clusters": 2,
+      "delivery_clusters": 2,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        2314,
+        2320
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 56,
+      "start": 103,
+      "end": 112.583333333,
+      "art": "assets/lynn/s067-103.500.png",
+      "source_clusters": 19,
+      "delivery_clusters": 18,
+      "suppressed_events": [],
+      "score": 0.0,
+      "representative_frames": [
+        2472,
+        2477,
+        2482,
+        2486,
+        2490,
+        2494,
+        2500,
+        2504,
+        2508,
+        2512,
+        2516,
+        2519,
+        2522,
+        2567,
+        2609,
+        2628,
+        2633,
+        2639,
+        2645
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 57,
+      "start": 112.583333333,
+      "end": 115.375,
+      "art": "assets/lynn/s070-112.800.png",
+      "source_clusters": 7,
+      "delivery_clusters": 7,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        2702,
+        2704,
+        2708,
+        2711,
+        2714,
+        2718,
+        2723
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 58,
+      "start": 116.041666667,
+      "end": 122.458333333,
+      "art": "assets/lynn/s071-116.500.png",
+      "source_clusters": 3,
+      "delivery_clusters": 1,
+      "suppressed_events": [],
+      "score": 0.0,
+      "representative_frames": [
+        2785,
+        2810,
+        2822
+      ],
+      "candidate": true
+    },
+    {
+      "plate": 59,
+      "start": 122.458333333,
+      "end": 123.75,
+      "art": "assets/lynn/s073-122.800.png",
+      "source_clusters": 5,
+      "delivery_clusters": 4,
+      "suppressed_events": [],
+      "score": 0.0,
+      "representative_frames": [
+        2939,
+        2943,
+        2947,
+        2951,
+        2959
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 62,
+      "start": 136.041666667,
+      "end": 137.25,
+      "art": "assets/lynn/s079-136.500.png",
+      "source_clusters": 4,
+      "delivery_clusters": 5,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        3265,
+        3266,
+        3284,
+        3290
+      ],
+      "candidate": false
+    },
+    {
+      "plate": 63,
+      "start": 137.25,
+      "end": 138.375,
+      "art": "assets/lynn/s080-138.700.png",
+      "source_clusters": 4,
+      "delivery_clusters": 4,
+      "suppressed_events": [],
+      "score": 0,
+      "representative_frames": [
+        3294,
+        3296,
+        3305,
+        3311
+      ],
+      "candidate": false
+    }
+  ]
+}

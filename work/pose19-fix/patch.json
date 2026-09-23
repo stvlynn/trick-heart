@@ -1,0 +1,66 @@
+[
+  {
+    "start": 18.708333333333332,
+    "end": 18.916666666666668,
+    "source": "work/pose19-fix/f450.png",
+    "art": "assets/lynn/pose19-450.png",
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "start": 18.916666666666668,
+    "end": 19.125,
+    "source": "work/pose19-fix/f456.png",
+    "art": "assets/lynn/pose19-456.png",
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "start": 19.125,
+    "end": 19.333333333333332,
+    "source": "work/pose19-fix/f460.png",
+    "art": "assets/lynn/pose19-460.png",
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  },
+  {
+    "start": 19.333333333333332,
+    "end": 19.666666666666668,
+    "source": "work/pose19-fix/f466.png",
+    "art": "assets/lynn/pose19-466.png",
+    "regions": [
+      [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    ],
+    "full_patch": true,
+    "static": true
+  }
+]
